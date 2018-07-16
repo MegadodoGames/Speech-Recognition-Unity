@@ -11,8 +11,10 @@ using UnityEngine.Windows.Speech;
  */
 public class SpeechRecognitionEngine : MonoBehaviour
 {
-    public string[] keywords = {"up", "down", "left", "right"};
-    public ConfidenceLevel confidence = ConfidenceLevel.Medium;
+//    public string[] keywords = {"up", "down", "left", "right"};
+    [Tooltip("The grammar file must be inside StreamingAssets/ folder.")]
+    public string grammarFilePath = "grammar.xml";
+    public ConfidenceLevel confidence = ConfidenceLevel.Low;
     public PhraseRecognizer.PhraseRecognizedDelegate onPhraseRecognized;
     private PhraseRecognizer recognizer;
 
@@ -27,11 +29,11 @@ public class SpeechRecognitionEngine : MonoBehaviour
 
     private void Start()
     {
-        if (keywords != null)
-        {
-            recognizer = new KeywordRecognizer(keywords, confidence);
-            recognizer.OnPhraseRecognized += OnPhraseRecognized;
-        }
+//        recognizer = new KeywordRecognizer(keywords, confidence);
+        var streamingGrammarFilePath = Application.streamingAssetsPath + '/' + grammarFilePath;
+        print("Loading grammar file at " + streamingGrammarFilePath);
+        recognizer = new GrammarRecognizer(streamingGrammarFilePath, confidence);
+        recognizer.OnPhraseRecognized += OnPhraseRecognized;
     }
 
     private void OnPhraseRecognized(PhraseRecognizedEventArgs args)
