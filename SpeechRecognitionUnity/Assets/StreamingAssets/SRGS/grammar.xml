@@ -1,0 +1,16 @@
+﻿<grammar version="1.0" xml:lang="en-US" mode="voice" root="mediaMenu"
+         xmlns="http://www.w3.org/2001/06/grammar">
+
+  <rule id="mediaMenu" scope="public">
+
+    <ruleref uri="#friendCommand" />
+
+  </rule>
+
+  <rule id="friendCommand" scope="public">
+    <one-of>
+      <item> Find </item>
+      <item> Call </item>
+    </one-of>
+  </rule>
+</grammar>

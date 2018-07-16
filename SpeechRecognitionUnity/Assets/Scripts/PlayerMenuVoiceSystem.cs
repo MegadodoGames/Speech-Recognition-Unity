@@ -28,5 +28,10 @@ public class PlayerMenuVoiceSystem : MonoBehaviour
             args.confidence,
             args.phraseDuration.TotalMilliseconds);
         print(results.text);
+        if (args.semanticMeanings != null)
+            foreach (SemanticMeaning meaning in args.semanticMeanings)
+            {
+                print(meaning);
+            }
     }
 }

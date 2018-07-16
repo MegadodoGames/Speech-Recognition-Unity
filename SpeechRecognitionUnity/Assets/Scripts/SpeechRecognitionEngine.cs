@@ -13,7 +13,7 @@ public class SpeechRecognitionEngine : MonoBehaviour
 {
 //    public string[] keywords = {"up", "down", "left", "right"};
     [Tooltip("The grammar file must be inside StreamingAssets/ folder.")]
-    public string grammarFilePath = "grammar.xml";
+    public string grammarFilePath = "SRGS/grammar.xml";
     public ConfidenceLevel confidence = ConfidenceLevel.Low;
     public PhraseRecognizer.PhraseRecognizedDelegate onPhraseRecognized;
     private PhraseRecognizer recognizer;
