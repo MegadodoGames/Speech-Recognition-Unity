@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Windows.Speech;
 
 public class SpeechRecognitionEngine : MonoBehaviour
 {
-    public string[] keywords = new string[] { "up", "down", "left", "right" };
+    public string[] keywords = {"up", "down", "left", "right"};
     public ConfidenceLevel confidence = ConfidenceLevel.Medium;
     public float speed = 1;
 
@@ -34,8 +32,8 @@ public class SpeechRecognitionEngine : MonoBehaviour
 
     private void Update()
     {
-        var x = target.transform.position.x;
-        var y = target.transform.position.y;
+        float x = target.transform.position.x;
+        float y = target.transform.position.y;
 
         switch (word)
         {
