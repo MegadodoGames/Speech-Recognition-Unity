@@ -3,7 +3,12 @@
 
   <rule id="mediaMenu" scope="public">
 
-    <ruleref uri="#friendCommand" />
+    <one-of>
+      <item>
+        <ruleref uri="#friendCommand" />
+      </item>
+      <item> Take a photo </item>
+    </one-of>
 
   </rule>
 
@@ -11,6 +16,13 @@
     <one-of>
       <item> Find </item>
       <item> Call </item>
+      <item> Block </item>
+    </one-of>
+    <one-of>
+      <item> Cole </item>
+      <item> Anthony </item>
+      <item> Alex </item>
+      <item> Sumo </item>
     </one-of>
   </rule>
 </grammar>
