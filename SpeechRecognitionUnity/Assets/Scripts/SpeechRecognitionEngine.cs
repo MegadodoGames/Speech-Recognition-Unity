@@ -12,7 +12,9 @@ using UnityEngine.Windows.Speech;
 public class SpeechRecognitionEngine : MonoBehaviour
 {
 //    public string[] keywords = {"up", "down", "left", "right"};
-    [Tooltip("The grammar file must be inside StreamingAssets/ folder.")]
+    [Tooltip("The grammar file must be inside StreamingAssets/ folder." +
+             "Build SRGS grammar file using this tutorial:" +
+             "https://docs.microsoft.com/en-us/previous-versions/office/developer/speech-technologies/hh362887(v%3doffice.14)")]
     public string grammarFilePath = "SRGS/grammar.xml";
     public ConfidenceLevel confidence = ConfidenceLevel.Low;
     public PhraseRecognizer.PhraseRecognizedDelegate onPhraseRecognized;
