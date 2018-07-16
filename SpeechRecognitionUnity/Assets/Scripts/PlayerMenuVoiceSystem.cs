@@ -23,10 +23,10 @@ public class PlayerMenuVoiceSystem : MonoBehaviour
     private void OnCommandReceived(PhraseRecognizedEventArgs args)
     {
         string word = args.text;
-        results.text = string.Format("You said: <b>{0}</b>\nConfidence: {1}\nPhrase Duration: {2}",
+        results.text = string.Format("You said: <b>{0}</b>\nConfidence: {1}\nPhrase Duration: {2} ms",
             word,
             args.confidence,
-            args.phraseDuration);
+            args.phraseDuration.TotalMilliseconds);
         print(results.text);
     }
 }
