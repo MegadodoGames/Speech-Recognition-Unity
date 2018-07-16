@@ -4,8 +4,9 @@ using UnityEngine.Windows.Speech;
 
 public class PlayerMenuVoiceSystem : MonoBehaviour
 {
-    private SpeechRecognitionEngine speechEngine;
     public Text results;
+    public Text status;
+    private SpeechRecognitionEngine speechEngine;
 
     // Use this for initialization
     private void Start()
@@ -17,7 +18,11 @@ public class PlayerMenuVoiceSystem : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        speechEngine.Listen();
+        if (Input.GetButton("Submit"))
+        {
+            speechEngine.Listen();
+            status.text = "Listening...";
+        }
     }
 
     private void OnCommandReceived(PhraseRecognizedEventArgs args)
@@ -29,9 +34,13 @@ public class PlayerMenuVoiceSystem : MonoBehaviour
             args.phraseDuration.TotalMilliseconds);
         print(results.text);
         if (args.semanticMeanings != null)
+        {
             foreach (SemanticMeaning meaning in args.semanticMeanings)
             {
                 print(meaning);
             }
+        }
+
+        status.text = "Press \"Submit\" button for voice command...";
     }
 }
